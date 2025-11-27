@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Developer Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+        }
+        a { color: #58a6ff; text-decoration: none; }
+        h1, h2, h3 { margin: 0; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #161b22;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 80px 40px;
+            border-bottom: 1px solid #222;
+        }
+        h2 {
+            color: #58a6ff;
+            margin-bottom: 15px;
+        }
+
+        .hero {
+            padding: 120px 40px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #58a6ff;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #9ba3af;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #238636;
+            color: white;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .project-card {
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .project-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            background: #238636;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 6px;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #161b22;
+            color: #9ba3af;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h2>Olebogeng Molekane</h2>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Hello, I'm a Developer</h1>
+        <p>I build modern, responsive, and user-friendly applications.</p>
+        <a class="btn" href="#projects">View My Work</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate developer skilled in creating efficient digital solutions that solve real-world problems.
+            I specialize in web development, problem-solving, and building smooth, intuitive user experiences.
+            With my Diploma and Advanced Diploma in Information Technology, I have built a strong foundation in
+            software development, networking, and system analysis.
+        </p>
+        <p>
+            I enjoy learning new technologies, improving my coding abilities, and taking on challenges that help me grow.
+            My goal is to build applications that are functional, visually appealing, and user-focused.
+        </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="project-card">
+            <h3>IT Intern – (Kinetix Engineering Solutions)</h3>
+            <p><strong>2024 – 2025</strong></p>
+            <ul>
+                <li>Assisted in troubleshooting hardware and software issues.</li>
+                <li>Supported system updates, installations, and maintenance tasks.</li>
+                <li>Worked with senior developers on small web and mobile app features.</li>
+                <li>Collaborated with teams to ensure smooth IT operations.</li>
+            </ul>
+        </div>
+
+        <div class="project-card">
+            <h3>Freelance Developer</h3>
+            <p><strong>2024 – Present</strong></p>
+            <ul>
+                <li>Created responsive websites for personal and community projects.</li>
+                <li>Developed small apps focusing on UI/UX and functionality.</li>
+                <li>Worked with Flutter, HTML, CSS, JavaScript, and Firebase.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <h3>Technical Skills</h3>
+
+        <ul>
+            <li><strong>Programming:</strong> HTML, CSS, JavaScript, Dart, Java</li>
+            <li><strong>Frameworks:</strong> Flutter, React (optional)</li>
+            <li><strong>Tools:</strong> Git, VS Code, Figma, Android Studio</li>
+            <li><strong>Databases:</strong> Firebase, MySQL</li>
+            <li><strong>Other:</strong> Troubleshooting, UI/UX basics, Problem-solving</li>
+        </ul>
+
+        <h3>Soft Skills</h3>
+        <ul>
+            <li>Strong communication and teamwork abilities</li>
+            <li>Adaptability and eagerness to learn new technologies</li>
+            <li>Time management and organizational skills</li>
+            <li>Attention to detail and commitment to quality</li>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>Projects</h2>
+
+            <h3>Child Records Management</h3>
+            <p>A Flutter student management app featuring login, notices, and dashboards.</p>
+        <div class="project-card">
+            <img src="myphoto.jpg" alt="Project One Screenshot" class="project-img"
+                width="24" height="500">
+            <a href="myphoto.jpg" download>
+                   <button>Download Image</button>
+            </a>
+        </div>
+
+        <div class="project-card">
+            <img src="project2.png" alt="Project Two Screenshot" class="project-img">
+            <h3>Portfolio Website</h3>
+            <p>A personal portfolio built with HTML, CSS, and JavaScript.</p>
+        </div>
+
+        <div class="project-card">
+            <img src="project3.png" alt="Project Three Screenshot" class="project-img">
+            <h3>Student Sphere App</h3>
+            <p>A Flutter + Firebase task tracking application.</p>
+        </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2>Education</h2>
+
+        <div class="project-card">
+            <h3>Advanced Diploma in Information Technology</h3>
+            <h4>Central University of Technology ,Bloemfontein gi
+            </h4>
+            <p><strong>2025-2026</strong></p>
+            <p>Focused on Computer Server administration, Research Methodology, Operating Systems,
+               Database Systems ,Software Development and complex digital solutions.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Diploma in Information Technology</h3>
+            <h4>Central University of Technology ,Bloemfontein</h4>
+            <p><strong>2021-2025</strong></p>
+            <p>Gained foundation knowledge in programming, networking, and system analysis.</p>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+        <h2>Certificates</h2>
+
+        <ul>
+            <li>Web Development Certificate</li>
+            <li>Flutter App Development Course</li>
+            <li>Computing Fundamentals Course</li>
+            <li>Any Online Courses (Google, CISCO, Udemy, etc.)</li>
+        </ul>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+        <h2>Achievements</h2>
+
+        <ul>
+            <li>Built and deployed functional mobile and web apps.</li>
+            <li>Successfully completed IT Diploma and Advanced Diploma.</li>
+            <li>Recognized for teamwork, dedication, and continuous improvement.</li>
+            <li>Developed strong problem-solving and coding skills.</li>
+        </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out:</p>
+
+        <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 My Developer Portfolio
+    </footer>
+
+</body>
+</html>
