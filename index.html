@@ -131,14 +131,15 @@
             .hero p { font-size: 0.9rem; }
         }
 
-     .project-Img {
-    width: 40vw;               /* Responsive size based on screen width */
-    max-width: 180px;          /* Prevent it from getting too big */
-    aspect-ratio: 1 / 1;       /* Always stays a perfect circle */
-    border-radius: 50%;        /* Makes it round */
-    object-fit: cover;         /* Prevents distortion */
+            .project-Img {
+    width: 35vw;               /* Scales with screen width */
+    max-width: 160px;          /* Limits size on large screens */
+    min-width: 110px;          /* Keeps good size on small phones */
+    aspect-ratio: 1 / 1;       /* Always a perfect circle */
+    border-radius: 50%;
+    object-fit: cover;         /* No stretching */
     display: block;
-    margin: 0 auto;            /* Centers the image */
+    margin: 20px auto;         /* Center with spacing */
 }
 
 
