@@ -130,6 +130,17 @@
             .hero h1 { font-size: 1.5rem; }
             .hero p { font-size: 0.9rem; }
         }
+
+        .project-img {
+    width: 180px;          /* Adjust size as needed (150–220px works best) */
+    height: 180px;
+    border-radius: 50%;    /* Makes it round */
+    object-fit: cover;     /* Prevents stretching */
+    border: 1px solid #fff; /* Optional: clean white border */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Optional soft glow */
+}
+
+
     </style>
 </head>
 <body>
@@ -151,6 +162,7 @@
 
     <!-- HERO -->
     <section class="hero">
+        <img src="Profilephoto.jpg" alt="Project One Screenshot" class="project-img">
         <h1>Hello, I'm a Fullstack Developer</h1>
         <p>I build modern, responsive, and user-friendly applications.</p>
         <a class="btn" href="#projects">View My Work</a>
