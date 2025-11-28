@@ -104,6 +104,32 @@
             background: #161b22;
             color: #9ba3af;
         }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0d1117; }
+        ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 10px; border: 2px solid #0d1117; }
+        ::-webkit-scrollbar-thumb:hover { background: #484f58; }
+        * { scrollbar-width: thin; scrollbar-color: #30363d #0d1117; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header { flex-direction: row; overflow-x: auto; white-space: nowrap; padding: 15px 20px; }
+            nav { display: inline-flex; }
+            nav a { margin-left: 15px; font-size: 0.9rem; flex-shrink: 0; }
+            .hero { padding: 80px 20px; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            section { padding: 40px 20px; }
+            .project-card { padding: 15px; }
+            form input, form textarea, form button { font-size: 0.95rem; }
+        }
+        @media (max-width: 480px) {
+            header h2 { font-size: 1.4rem; }
+            nav a { font-size: 0.85rem; }
+            .hero h1 { font-size: 1.5rem; }
+            .hero p { font-size: 0.9rem; }
+        }
     </style>
 </head>
 <body>
@@ -125,9 +151,10 @@
 
     <!-- HERO -->
     <section class="hero">
-        <h1>Hello, I'm a Developer</h1>
+        <h1>Hello, I'm a Fullstack Developer</h1>
         <p>I build modern, responsive, and user-friendly applications.</p>
         <a class="btn" href="#projects">View My Work</a>
+        <a class="btn" href="Olebogeng_Molekane_CV.pdf" download>Download CV</a>
     </section>
 
     <!-- ABOUT -->
@@ -149,16 +176,17 @@
     <section id="experience">
         <h2>Experience</h2>
 
-        <div class="project-card">
-            <h3>IT Intern – (Kinetix Engineering Solutions)</h3>
-            <p><strong>2024 – 2025</strong></p>
-            <ul>
-                <li>Assisted in troubleshooting hardware and software issues.</li>
-                <li>Supported system updates, installations, and maintenance tasks.</li>
-                <li>Worked with senior developers on small web and mobile app features.</li>
-                <li>Collaborated with teams to ensure smooth IT operations.</li>
+        <div class="project-card"> <h3>IT Intern – (Kinetix Engineering Solutions)</h3>
+             <p><strong>2024 – 2025</strong></p> 
+             <ul> <li>Assisted in troubleshooting hardware and software issues.</li>
+                 <li>Supported system updates, installations, and maintenance tasks.</li>
+                 <li>Worked with senior developers on small web and mobile app features.</li> 
+                 <li>Collaborated with teams to ensure smooth IT operations.</li> 
+                 <li>Working closely with the IT team to help with writing,
+                     checking, and fixing computer code.</li>
+                 <li>Helped make sure systems are backed up and kept clear records of IT work.</li>
             </ul>
-        </div>
+             </div>
 
         <div class="project-card">
             <h3>Freelance Developer</h3>
@@ -172,116 +200,82 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <h3>Technical Skills</h3>
+    <!-- SKILLS -->
+<section id="skills">
+    <h2>Skills</h2>
 
-        <ul>
-            <li><strong>Programming:</strong> HTML, CSS, JavaScript, Dart, Java</li>
-            <li><strong>Frameworks:</strong> Flutter, React (optional)</li>
-            <li><strong>Tools:</strong> Git, VS Code, Figma, Android Studio</li>
-            <li><strong>Databases:</strong> Firebase, MySQL</li>
-            <li><strong>Other:</strong> Troubleshooting, UI/UX basics, Problem-solving</li>
-        </ul>
+    <h3>Technical Skills</h3>
+    <ul>
+        <li><strong>Programming:</strong> HTML, CSS, JavaScript, Dart, Java</li>
+        <li><strong>Frameworks:</strong> Flutter, React</li>
+        <li><strong>Tools:</strong> Git, VS Code, Figma, Android Studio</li>
+        <li><strong>Databases:</strong> Firebase, MySQL</li>
+        <li><strong>Other:</strong> Troubleshooting, UI/UX basics, Problem-solving</li>
+    </ul>
 
-        <h3>Soft Skills</h3>
-        <ul>
-            <li>Strong communication and teamwork abilities</li>
-            <li>Adaptability and eagerness to learn new technologies</li>
-            <li>Time management and organizational skills</li>
-            <li>Attention to detail and commitment to quality</li>
-    </section>
+    <h3>Soft Skills</h3>
+    <ul>
+        <li>Strong communication and teamwork abilities</li>
+        <li>Adaptability and eagerness to learn new technologies</li>
+        <li>Time management and organizational skills</li>
+        <li>Attention to detail and commitment to quality</li>
+    </ul>
+</section>
+
 
     <!-- PROJECTS -->
     <section id="projects">
         <h2>Projects</h2>
-
+        <div class="project-card">
             <h3>Child Records Management</h3>
-            <p>A Flutter student management app featuring login, notices, and dashboards.</p>
-        <div class="project-card">
-            <img src="myphoto.jpg" alt="Project One Screenshot" class="project-img"
-                width="24" height="500">
-            <a href="myphoto.jpg" download>
-                   <button>Download Image</button>
-            </a>
+            <p>A Flutter Child records management app featuring login, notices, and dashboards.</p>
+            <img src="myphoto.jpg" alt="Project One Screenshot" class="project-img">
+            <a class="btn" href="myphoto.jpg" download>Download Image</a>
+            
         </div>
-
         <div class="project-card">
-            <img src="project2.png" alt="Project Two Screenshot" class="project-img">
             <h3>Portfolio Website</h3>
             <p>A personal portfolio built with HTML, CSS, and JavaScript.</p>
+            <img src="project2.png" alt="Project Two Screenshot" class="project-img">
         </div>
-
-        <div class="project-card">
-            <img src="project3.png" alt="Project Three Screenshot" class="project-img">
-            <h3>Student Sphere App</h3>
-            <p>A Flutter + Firebase task tracking application.</p>
-        </div>
-
     </section>
 
     <!-- EDUCATION -->
     <section id="education">
         <h2>Education</h2>
-
-        <div class="project-card">
-            <h3>Advanced Diploma in Information Technology</h3>
-            <h4>Central University of Technology ,Bloemfontein gi
-            </h4>
-            <p><strong>2025-2026</strong></p>
-            <p>Focused on Computer Server administration, Research Methodology, Operating Systems,
-               Database Systems ,Software Development and complex digital solutions.</p>
-        </div>
-
         <div class="project-card">
             <h3>Diploma in Information Technology</h3>
-            <h4>Central University of Technology ,Bloemfontein</h4>
-            <p><strong>2021-2025</strong></p>
-            <p>Gained foundation knowledge in programming, networking, and system analysis.</p>
+            <h4>Central University of Technology – Bloemfontein</h4>
+            <p><strong>01 January 2025</strong></p>
+            <p>Modules Completed:</p>
+            <ul>
+                <li>Software Development & Programming</li>
+                <li>Database Design and Management</li>
+                <li>Web Development (HTML, CSS, JavaScript, PHP, Flutter, Firebase)</li>
+                <li>Networking and Security</li>
+                <li>Systems Analysis and Design</li>
+                <li>IT Project Management</li>
+            </ul>
         </div>
-    </section>
-
-    <!-- CERTIFICATES -->
-    <section id="certificates">
-        <h2>Certificates</h2>
-
+         <div class="project-card">
+        <h3>Advanced Diploma in Information Technology</h3>
+        <h4>Central University of Technology – Bloemfontein</h4>
+        <p><strong>2025–2026</strong></p>
+        <p>Modules Completed:</p>
         <ul>
-            <li>Web Development Certificate</li>
-            <li>Flutter App Development Course</li>
-            <li>Computing Fundamentals Course</li>
-            <li>Any Online Courses (Google, CISCO, Udemy, etc.)</li>
+            <li>Computer Server Administration</li>
+            <li>Research Methodology</li>
+            <li>Operating Systems</li>
+            <li>Database Systems</li>
+            <li>Software Development</li>
+            <li>Digital Solutions</li>
         </ul>
-    </section>
-
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements">
-        <h2>Achievements</h2>
-
-        <ul>
-            <li>Built and deployed functional mobile and web apps.</li>
-            <li>Successfully completed IT Diploma and Advanced Diploma.</li>
-            <li>Recognized for teamwork, dedication, and continuous improvement.</li>
-            <li>Developed strong problem-solving and coding skills.</li>
-        </ul>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out:</p>
-
-        <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea rows="5" placeholder="Your Message"></textarea>
-            <button type="submit">Send</button>
-        </form>
+    </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         © 2025 My Developer Portfolio
     </footer>
-
 </body>
 </html>
