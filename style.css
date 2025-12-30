@@ -1,0 +1,432 @@
+/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ===== BASE ===== */
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(circle at top, #0b0f2a, #020617);
+    color: #e6edf3;
+    letter-spacing: 0.25px;
+}
+
+a { 
+    color: #58a6ff; 
+    text-decoration: none; 
+}
+
+h1, h2, h3 { 
+    margin: 0; 
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.8px;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(22, 27, 34, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+nav a {
+    margin-left: 20px;
+    font-weight: bold;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+nav a.active {
+    color: #a78bfa;
+    border-bottom: 2px solid #a78bfa;
+    padding-bottom: 3px;
+}
+
+/* ===== HERO ===== */
+.hero {
+    padding: 120px 40px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #a78bfa;
+    font-weight: 700;
+    background: linear-gradient(
+        90deg,
+        #a78bfa,
+        #7c3aed,
+        #38bdf8,
+        #f472b6
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 6s ease infinite;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #9ba3af;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-block;
+    margin: 15px 10px 0;
+    padding: 12px 25px;
+    background: #7c3aed;
+    color: white;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.btn:hover::after {
+    opacity: 1;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.7);
+}
+
+.btn.linkedin {
+    background: linear-gradient(135deg, #0a66c2, #004182);
+    box-shadow: 0 0 18px rgba(10,102,194,0.7);
+}
+
+.btn.github {
+    background: linear-gradient(135deg, #333, #6e5494);
+    box-shadow: 0 0 18px rgba(110,84,148,0.7);
+}
+
+.btn i { 
+    margin-right: 8px; 
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 80px 40px;
+    border-bottom: 1px solid #222;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: sectionReveal 1s ease forwards;
+}
+
+section:nth-of-type(1) { animation-delay: 0.2s; }
+section:nth-of-type(2) { animation-delay: 0.4s; }
+section:nth-of-type(3) { animation-delay: 0.6s; }
+section:nth-of-type(4) { animation-delay: 0.8s; }
+section:nth-of-type(5) { animation-delay: 1s; }
+
+@keyframes sectionReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    color: #a78bfa;
+    margin-bottom: 15px;
+}
+
+/* ===== CARDS ===== */
+.project-card {
+    background: rgba(22, 27, 34, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: cardFloat 8s ease-in-out infinite;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 35px rgba(124, 58, 237, 0.45);
+}
+
+/* Floating card animation */
+@keyframes cardFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* ===== IMAGES ===== */
+.project-img {
+    width: 75%;
+    border-radius: 4px;
+    margin-bottom: 7.5px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
+}
+
+.project-Img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.6);
+    margin-bottom: 20px;
+    animation: floatAvatar 6s ease-in-out infinite;
+}
+
+@keyframes floatAvatar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+/* ===== PROJECT TITLES WITH UNIQUE GRADIENTS ===== */
+#child-health h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #7c3aed, #a78bfa, #c084fc);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientStudent 6s ease infinite;
+    margin-bottom: 12px;
+}
+@keyframes gradientChild {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#student-sphere h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #7c3aed, #a78bfa, #c084fc);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientStudent 6s ease infinite;
+    margin-bottom: 12px;
+}
+@keyframes gradientStudent {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#portfolio h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #7c3aed, #a78bfa, #c084fc);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientStudent 6s ease infinite;
+    margin-bottom: 12px;
+}
+@keyframes gradientPortfolio {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== TECHNOLOGIES USED – GLOWING BADGES ===== */
+.technologies {
+    margin-top: 10px;
+}
+
+.technologies strong {
+    color: #a78bfa;
+}
+
+.project-tech span {
+    display: inline-block;
+    margin: 5px 5px 0 0;
+    padding: 8px 14px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #7c3aed, #38bdf8);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-tech span:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+}
+
+/* ===== LISTS ===== */
+ul { 
+    padding-left: 20px; 
+}
+
+ul li { 
+    margin-bottom: 8px; 
+    line-height: 1.75; 
+}
+
+/* ===== TOOLS ICON GRID ===== */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.tool {
+    background: rgba(20, 25, 70, 0.75);
+    padding: 25px 15px;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.tool::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(120deg, transparent, rgba(167,139,250,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.tool:hover::before {
+    opacity: 1;
+}
+
+.tool i {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+    color: #a78bfa;
+    text-shadow: 0 0 15px rgba(167, 139, 250, 0.8);
+    animation: iconPulse 3s ease-in-out infinite;
+}
+
+.tool span {
+    display: block;
+    font-size: 0.95rem;
+    color: #dbeafe;
+}
+
+.tool:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 35px rgba(124, 58, 237, 0.6);
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* ===== CONTACT ===== */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    background: #020617;
+    color: #e6edf3;
+    font-family: 'Inter', sans-serif;
+}
+
+button {
+    padding: 12px 20px;
+    background: #7c3aed;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 6px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #161b22;
+    color: #9ba3af;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    header { 
+        padding: 15px 20px; 
+        overflow-x: auto; 
+        white-space: nowrap; 
+    }
+
+    .hero h1 { 
+        font-size: 2rem; 
+    }
+
+    section { 
+        padding: 40px 20px; 
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem; /* scale down for smaller screens */
+    }
+
+    .project-tech span {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+}
+
+/* ===== HERO ANIMATION ===== */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== BACKGROUND COSMIC MOTION ===== */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(124,58,237,0.15), transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(56,189,248,0.12), transparent 40%);
+    animation: cosmicShift 12s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes cosmicShift {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, 20px); }
+    100% { transform: translate(0, 0); }
+}
+
+
+
