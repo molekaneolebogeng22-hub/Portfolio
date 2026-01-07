@@ -736,7 +736,289 @@ body::before {
         font-size: 0.9rem;
     }
 }
+/* ===== HAMBURGER MENU (TOP DRAWER) ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 300;
+}
 
+.hamburger div {
+    height: 3px;
+    background: #a78bfa;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Top drawer navigation hidden by default */
+.nav-drawer {
+    position: fixed;
+    top: -100%; /* hidden above the viewport initially */
+    left: 0;
+    width: 100%;
+    background: rgba(22, 27, 34, 0.97);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    gap: 25px;
+    transition: top 0.4s ease;
+    z-index: 250;
+}
+
+.nav-drawer a {
+    font-size: 1.2rem;
+    color: #e6edf3;
+    text-align: center;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease;
+}
+
+.nav-drawer a:hover {
+    background: rgba(124, 58, 237, 0.15);
+}
+
+/* Drawer open state */
+.nav-drawer.open {
+    top: 0; /* slides down */
+}
+
+/* Hamburger active animation */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== SHOW HAMBURGER ON MOBILE ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    header nav {
+        display: none; /* hide default nav */
+    }
+}
+/* Hamburger styles */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 200; /* above drawer */
+}
+
+.hamburger span {
+    height: 3px;
+    width: 100%;
+    background: #a78bfa;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger active state (cross) */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Drawer styles */
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -250px; /* hidden by default */
+    width: 250px;
+    height: 100%;
+    background: rgba(22,27,34,0.95);
+    backdrop-filter: blur(10px);
+    padding: 60px 20px;
+    transition: right 0.3s ease;
+    z-index: 150;
+}
+
+.nav-drawer.open {
+    right: 0; /* visible */
+}
+
+.nav-drawer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-drawer ul li {
+    margin-bottom: 25px;
+}
+
+.nav-drawer ul li a {
+    color: #a78bfa;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-drawer ul li a:hover {
+    color: #38bdf8;
+}
+
+/* Optional: hide drawer on desktop if using regular nav */
+@media(min-width: 768px){
+    .hamburger { display: none; }
+    .nav-drawer {
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        backdrop-filter: none;
+        padding: 0;
+        display: flex;
+    }
+    .nav-drawer ul {
+        display: flex;
+        gap: 20px;
+    }
+    .nav-drawer ul li { margin-bottom: 0; }
+}
+/* Logo with gradient text */
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #a78bfa, #7c3aed, #38bdf8, #f472b6);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 6s ease infinite;
+    cursor: pointer;
+}
+
+/* Hamburger button */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 200; /* above drawer */
+}
+
+.hamburger span {
+    height: 3px;
+    width: 100%;
+    background: #a78bfa;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger active state (cross) */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Drawer styles */
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -300px; /* hidden by default */
+    width: 250px;
+    height: 100%;
+    background: rgba(22,27,34,0.95);
+    backdrop-filter: blur(12px);
+    padding: 80px 30px;
+    transition: right 0.3s ease;
+    z-index: 150;
+    box-shadow: -2px 0 30px rgba(124,58,237,0.5);
+}
+
+/* Open drawer */
+.nav-drawer.open {
+    right: 0;
+}
+
+/* Navigation items */
+.nav-drawer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-drawer ul li {
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.4s ease;
+}
+
+/* Animate nav items when drawer opens */
+.nav-drawer.open ul li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Links styling */
+.nav-drawer ul li a {
+    color: #a78bfa;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: linear-gradient(90deg, #a78bfa, #7c3aed, #38bdf8, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-drawer ul li a:hover {
+    color: #38bdf8;
+    text-shadow: 0 0 12px rgba(56,189,248,0.8);
+}
+
+/* Media queries: hide drawer on desktop */
+@media(min-width: 768px){
+    .hamburger { display: none; }
+    .nav-drawer {
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        backdrop-filter: none;
+        padding: 0;
+        display: flex;
+        box-shadow: none;
+    }
+    .nav-drawer ul {
+        display: flex;
+        gap: 25px;
+    }
+    .nav-drawer ul li {
+        margin-bottom: 0;
+        opacity: 1;
+        transform: none;
+    }
+}
 
 
 
