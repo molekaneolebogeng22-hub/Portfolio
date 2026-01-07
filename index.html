@@ -17,18 +17,30 @@
 
 <!-- HEADER -->
 <header>
-    <h2>Olebogeng Molekane</h2>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#tools">Tools</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
+    <!-- Logo -->
+    <div class="logo"><span>Olebogeng Molekane</span></div>
+
+    <!-- Hamburger button -->
+    <div id="hamburger" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Navigation drawer -->
+    <nav id="navDrawer" class="nav-drawer">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 </header>
+
+
+
 
 <!-- HERO -->
 <section class="hero">
@@ -393,8 +405,19 @@
             maintainAspectRatio: false
         }
     });
+
+    const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+
+hamburger.addEventListener('click', () => {
+    navDrawer.classList.toggle('open');
+    hamburger.classList.toggle('active');
+});
+
+
 </script>
 
 </body>
 </html>
+
 
