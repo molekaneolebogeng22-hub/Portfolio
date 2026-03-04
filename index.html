@@ -44,7 +44,7 @@
 
 <!-- HERO -->
 <section class="hero">
-    <img src="\images\Profilephoto.jpg" alt="Profile Photo" class="project-Img">
+    <img src="images/Profilephoto.jpg" alt="Profile Photo" class="profile-img">
     <h1>Hello, I'm a Fullstack Developer</h1>
     <p>I build modern, responsive, and user-friendly applications.</p>
     <a class="btn" href="#projects">View My Work</a>
@@ -126,7 +126,7 @@
         <!-- Add Radar Chart -->
         <div class="skill-radar">
             <h3><i class="fa-solid fa-chart-pie"></i> Skill Proficiency Radar</h3>
-            <canvas id="skillRadar" width="400" height="400"></canvas>
+            <canvas id="skillRadar"></canvas>
         </div>
 
     </div>
@@ -134,64 +134,52 @@
 
 <!-- TOOLS & TECHNOLOGIES -->
 <section id="tools">
-    <h2>Tools & Technologies i use for Digital Experiences</h2>
-
-    <div class="tools-grid">
+    <h2>Tools & Technologies I Use</h2>
+    <div class="tools-container">
         <div class="tool">
             <i class="fa-brands fa-html5"></i>
             <span>HTML5</span>
         </div>
-
         <div class="tool">
             <i class="fa-brands fa-css3-alt"></i>
             <span>CSS3</span>
         </div>
-
         <div class="tool">
             <i class="fa-brands fa-js"></i>
             <span>JavaScript</span>
         </div>
-
         <div class="tool">
             <i class="fa-brands fa-react"></i>
             <span>React</span>
         </div>
-
         <div class="tool">
-            <i class="fa-solid fa-mobile-screen"></i>
+            <i class="fa-solid fa-mobile-screen-button"></i>
             <span>Flutter</span>
         </div>
-
         <div class="tool">
             <i class="fa-brands fa-figma"></i>
             <span>Figma</span>
         </div>
-
         <div class="tool">
             <i class="fa-solid fa-database"></i>
             <span>Firebase / MySQL</span>
         </div>
-
         <div class="tool">
             <i class="fa-brands fa-git-alt"></i>
             <span>Git & GitHub</span>
         </div>
-
         <div class="tool">
             <i class="fa-solid fa-code"></i>
             <span>VS Code</span>
         </div>
-
         <div class="tool">
             <i class="fa-brands fa-android"></i>
             <span>Android Studio</span>
         </div>
-
         <div class="tool">
             <i class="fa-solid fa-cloud"></i>
             <span>Hosting</span>
         </div>
-
         <div class="tool">
             <i class="fa-solid fa-universal-access"></i>
             <span>UI / UX</span>
@@ -359,10 +347,10 @@
             datasets: [{
                 label: 'Skill Level (%)',
                 data: [90, 85, 80, 75, 70, 80, 70, 75, 85], // adjust to your proficiency
-                backgroundColor: 'rgba(167, 139, 250, 0.2)',
-                borderColor: 'rgba(167, 139, 250, 1)',
+                backgroundColor: 'rgba(0, 255, 255, 0.2)',
+                borderColor: 'rgba(0, 255, 255, 1)',
                 borderWidth: 2,
-                pointBackgroundColor: 'rgba(56, 189, 248, 1)'
+                pointBackgroundColor: 'rgba(0, 255, 255, 1)',
             }]
         },
         options: {
@@ -372,16 +360,16 @@
                     max: 100,
                     ticks: {
                         stepSize: 20,
-                        color: '#e6edf3'
+                        color: '#00F5FF'
                     },
                     angleLines: {
-                        color: '#555'
+                        color: 'rgba(0,255,255,0.3)'
                     },
                     grid: {
-                        color: '#333'
+                        color: 'rgba(0,255,255,0.2)'
                     },
                     pointLabels: {
-                        color: '#a78bfa',
+                        color: '#00F5FF',
                         font: {
                             size: 14
                         }
@@ -391,7 +379,7 @@
             plugins: {
                 legend: {
                     labels: {
-                        color: '#e6edf3',
+                        color: '#00F5FF',
                         font: {
                             size: 14
                         }
@@ -402,7 +390,7 @@
                 }
             },
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: true
         }
     });
 
@@ -414,10 +402,122 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 });
 
+const balls = document.querySelectorAll('.tools-container .tool');
+const container = document.querySelector('.tools-container');
+
+const ballData = [];
+let dragBall = null;
+let pointerX = 0;
+let pointerY = 0;
+
+// Initialize balls
+balls.forEach(ball => {
+  const radius = ball.offsetWidth / 2;
+  const x = Math.random() * (container.clientWidth - radius*2) + radius;
+  const y = Math.random() * (container.clientHeight - radius*2) + radius;
+  
+  ballData.push({ el: ball, x, y, radius });
+
+  // Mouse drag
+ ball.addEventListener('mousedown', e => {
+  dragBall = ballData.find(b => b.el === ball);
+  pointerX = e.clientX - dragBall.x;
+  pointerY = e.clientY - dragBall.y;
+  dragBall.el.classList.add('dragging'); // <-- add dragging class
+});
+
+  // Touch drag
+ ball.addEventListener('touchstart', e => {
+  dragBall = ballData.find(b => b.el === ball);
+  const touch = e.touches[0];
+  pointerX = touch.clientX - dragBall.x;
+  pointerY = touch.clientY - dragBall.y;
+  dragBall.el.classList.add('dragging'); // <-- add dragging class
+});
+});
+
+// Stop dragging
+window.addEventListener('mouseup', () => dragBall = null);
+window.addEventListener('touchend', () => dragBall = null);
+
+// Drag movement
+window.addEventListener('mousemove', e => {
+  if(!dragBall) return;
+  dragBall.x = e.clientX - pointerX;
+  dragBall.y = e.clientY - pointerY;
+  keepInside(dragBall);
+});
+
+window.addEventListener('touchmove', e => {
+  if(!dragBall) return;
+  const touch = e.touches[0];
+  dragBall.x = touch.clientX - pointerX;
+  dragBall.y = touch.clientY - pointerY;
+  keepInside(dragBall);
+});
+
+// Keep a ball strictly inside container
+function keepInside(ball) {
+  ball.x = Math.max(ball.radius, Math.min(container.clientWidth - ball.radius, ball.x));
+  ball.y = Math.max(ball.radius, Math.min(container.clientHeight - ball.radius, ball.y));
+}
+
+// Collision check (without pushing balls outside)
+function resolveCollisions() {
+  for(let i=0; i<ballData.length; i++){
+    for(let j=i+1; j<ballData.length; j++){
+      const b1 = ballData[i];
+      const b2 = ballData[j];
+      const dx = b2.x - b1.x;
+      const dy = b2.y - b1.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const minDist = b1.radius + b2.radius;
+      if(dist < minDist && dist > 0){
+        const overlap = minDist - dist;
+        const offsetX = (dx / dist) * (overlap / 2);
+        const offsetY = (dy / dist) * (overlap / 2);
+
+        // Move balls slightly apart without leaving container
+        if(dragBall === b1) {
+          b2.x = clamp(b2.x + offsetX, b2.radius, container.clientWidth - b2.radius);
+          b2.y = clamp(b2.y + offsetY, b2.radius, container.clientHeight - b2.radius);
+        } else if(dragBall === b2) {
+          b1.x = clamp(b1.x - offsetX, b1.radius, container.clientWidth - b1.radius);
+          b1.y = clamp(b1.y - offsetY, b1.radius, container.clientHeight - b1.radius);
+        } else {
+          b1.x = clamp(b1.x - offsetX, b1.radius, container.clientWidth - b1.radius);
+          b1.y = clamp(b1.y - offsetY, b1.radius, container.clientHeight - b1.radius);
+          b2.x = clamp(b2.x + offsetX, b2.radius, container.clientWidth - b2.radius);
+          b2.y = clamp(b2.y + offsetY, b2.radius, container.clientHeight - b2.radius);
+        }
+      }
+    }
+  }
+}
+
+// Helper to clamp values
+function clamp(value, min, max){
+  return Math.max(min, Math.min(max, value));
+}
+
+// Render positions
+function render() {
+  resolveCollisions();
+  ballData.forEach(ball => {
+    ball.el.style.transform = `translate(${ball.x - ball.radius}px, ${ball.y - ball.radius}px)`;
+  });
+  requestAnimationFrame(render);
+}
+
+render();
+
 
 </script>
 
 </body>
 </html>
+
+
+
 
 
